@@ -1,12 +1,46 @@
 body {
+  margin: 0;
+  overflow: hidden;
   font-family: Arial, sans-serif;
   background-color: #ffebee;
-  text-align: center;
-  padding: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.daisy {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-image: url('images/daisy.png'); /* Add a daisy image */
+  background-size: cover;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+.daisy1 { left: 10%; animation-duration: 5s; }
+.daisy2 { left: 30%; animation-duration: 7s; }
+.daisy3 { left: 50%; animation-duration: 6s; }
+.daisy4 { left: 70%; animation-duration: 8s; }
+.daisy5 { left: 90%; animation-duration: 9s; }
+
 .container {
-  background-color: white;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -14,30 +48,35 @@ body {
 
 h1 {
   color: #e91e63;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
 }
 
-.photo {
-  width: 300px;
-  border-radius: 10px;
-  margin: 20px 0;
-}
-
-.video {
-  width: 300px;
-  border-radius: 10px;
-  margin: 20px 0;
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 button {
-  background-color: #e91e63;
-  color: white;
-  border: none;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 1.2rem;
+  border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: transform 0.2s;
 }
 
-button:hover {
-  background-color: #c2185b;
+#yesButton {
+  background-color: #e91e63;
+  color: white;
+}
+
+#noButton {
+  background-color: #ccc;
+  color: black;
+}
+
+#noButton:hover {
+  transform: translateX(calc(50vw - 50%)); /* Move the button away */
 }
